@@ -10,7 +10,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 
-export default function App() {
+export default function PickerShare() {
   const [image, setImage] = useState(null);
   function goback() {
     setImage(null);
@@ -48,7 +48,7 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Image source={require("./assets/logo.png")} style={styles.logo} />
+      <Image source={require("./../../../assets/logo.png")} style={styles.logo} />
       <Text style={styles.instructions}>按下按钮，与朋友分享手机中的图片</Text>
       <TouchableOpacity style={styles.button} onPress={openImagePickerAsync}>
         <Text style={styles.buttonText}>选择图片</Text>
