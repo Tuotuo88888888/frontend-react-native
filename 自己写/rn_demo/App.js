@@ -1,4 +1,4 @@
-import PickerShare from './screen/01/05'
+import SeachInput from './screen/02/01'
 export default function App() {
-  return <PickerShare />;
+  return <SeachInput />;
 }
