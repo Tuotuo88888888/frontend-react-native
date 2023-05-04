@@ -1,4 +1,4 @@
-import SeachInput from './screen/02/01'
+import MovieListPage from "./screen/02/04/SectionListPage";
 export default function App() {
-  return <SeachInput />;
+  return <MovieListPage />;
 }
