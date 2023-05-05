@@ -1,4 +1,4 @@
-import NativeBasePage from "./screen/02/06";
+import FreeDialogPage from "./screen/03/01";
 export default function App() {
-  return <NativeBasePage />;
+  return <FreeDialogPage />;
 }

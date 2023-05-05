@@ -6,8 +6,7 @@ export default function NativeBasePage() {
     <NativeBaseProvider>
       <Box
         style={{
-          height: "100%",
-          display: "flex",
+          flex: 1,
           alignItems: "center",
           justifyContent: "center",
         }}
