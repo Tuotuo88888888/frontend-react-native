@@ -1,4 +1,4 @@
-import MovieListPage from "./screen/02/04/SectionListPage";
+import NativeBasePage from "./screen/02/06";
 export default function App() {
-  return <MovieListPage />;
+  return <NativeBasePage />;
 }
