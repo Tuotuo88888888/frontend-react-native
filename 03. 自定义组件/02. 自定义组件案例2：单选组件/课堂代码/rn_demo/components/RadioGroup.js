@@ -27,9 +27,10 @@ export default class RadioGroup extends PureComponent {
     this.itemChange(index);
 
     // 3. 遍历每一个子组件，调用子组件的 setSelectState 方法
-    this.state.dataArray.forEach((item, index) => {
-      if(item !== null){
-        item.setSelectState(index === this.state.currentIndex);
+    this.state.dataArray.forEach((item, i) => {
+      if (item !== null) {
+        console.log(index, i);
+        item.setSelectState(false);
       }
     });
   }
@@ -53,7 +54,7 @@ export default class RadioGroup extends PureComponent {
               text={item.text}
               drawablePadding={drawablePadding}
               orientation={orientation}
-              ref={(radioButton) => this.state.dataArray.push(radioButton)}
+              ref={(radioButton) => (this.state.dataArray[index] = radioButton)}
               selectedChanged={() => {
                 this.change(index);
               }}
