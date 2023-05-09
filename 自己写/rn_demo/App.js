@@ -1,4 +1,4 @@
-import RadioPage from "./screen/03/02";
+import Index from "./screen/04/07";
 export default function App() {
-  return <RadioPage />;
+  return <Index />;
 }
