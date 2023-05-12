@@ -15,7 +15,7 @@ const images = new Array(6).fill(
   "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
 );
 export default function index() {
-  const [scrollX] = useState(Animated.Value(0));
+  const [scrollX] = useState(new Animated.Value(0));
 
   return (
     <View style={styles.container}>
@@ -24,6 +24,10 @@ export default function index() {
           horizontal
           pagingEnabled
           showsHorizontalScrollIndicator={false}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: false }
+          )}
         >
           {images.map((image, imageIndex) => (
             <View style={{ width: windowWidth, height: 250 }} key={imageIndex}>
@@ -39,17 +43,23 @@ export default function index() {
         </ScrollView>
         <View style={styles.indicatorContainer}>
           {images.map((_, imageIndex) => (
-            <View
+            <Animated.View
+              key={imageIndex}
               style={[
                 styles.normalDot,
                 {
-                  width: scrollX.interPolate({
-                    inputRange: [],
-                    outputRange: [],
+                  width: scrollX.interpolate({
+                    inputRange: [
+                      windowWidth * (imageIndex - 1),
+                      windowWidth * imageIndex,
+                      windowWidth * (imageIndex + 1),
+                    ],
+                    outputRange: [8, 16, 8],
+                    extrapolate: "clamp",
                   }),
                 },
               ]}
-            ></View>
+            ></Animated.View>
           ))}
         </View>
       </View>
